@@ -4,23 +4,25 @@
 
 run_incident_pull <- function(pg_num) {
   
-  try({
+  tryCatch({
     dps_incidents <- get_incidents(pg_num)
     incident_df <- create_incident_df(dps_incidents)
-  })
-  
-  return(incident_df)
+    
+    return(incident_df)
+    
+  }, error = function(e) {})
   
 }
 
 run_vehicle_pull <- function(pg_num) {
   
-  try({
+  tryCatch({
     dps_incidents <- get_incidents(pg_num)
     vehicles_df <- create_vehicles_df(dps_incidents)
-  })
-  
-  return(vehicles_df)
+    
+    return(vehicles_df)
+    
+  }, error = function(e) {})
   
 }
 
